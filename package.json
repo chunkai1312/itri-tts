@@ -1,0 +1,27 @@
+{
+  "name": "itri-tts",
+  "version": "0.0.1",
+  "description": "ITRI TTS Web Service API for Node.js",
+  "main": "index.js",
+  "dependencies": {
+    "soap": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chunkai1312/itri-tts.git"
+  },
+  "keywords": [
+    "itri",
+    "tts"
+  ],
+  "author": "Chun-Kai Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chunkai1312/itri-tts/issues"
+  },
+  "homepage": "https://github.com/chunkai1312/itri-tts"
+}
