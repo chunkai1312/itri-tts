@@ -18,7 +18,9 @@ ITRI TTS Web Service API for Node.js
       if (err) {
         console.log(err);
       }
-      console.log(result);
+      console.log(result);  // { resultCode: '0',
+                            //   resultString: 'success', 
+                            //   resultConvertID: CONVERT_ID }
     });    
 
 ### ConvertText
