@@ -1,76 +1,108 @@
-# itri-tts
-ITRI TTS Web Service API for Node.js
+#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-## Installation
-    npm install itri-tts
+> ITRI TTS Web Service API for Node.js
 
-## Documentation
-[ITRI TTS Web Service API](http://tts.itri.org.tw/development/web_service_api.php)
+
+## Install
+
+```sh
+$ npm install --save itri-tts
+```
+
 
 ## Usage
+
 [Create Account](http://tts.itri.org.tw/)
 
-    var TTSClient = require('itri-tts');
-    var tts = new TTSClient(your_accountID, your_password);
-    
+```js
+var TTSClient = require('itri-tts');
+var tts = new TTSClient(your_accountID, your_password);
+```   
+
+
 ### ConvertSimple
-    tts.ConvertSimple(TTStext, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      console.log(result);  // { resultCode: '0',
-                            //   resultString: 'success', 
-                            //   resultConvertID: CONVERT_ID }
-    });    
+
+```js
+tts.ConvertSimple(TTStext, function (err, result) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);  // { resultCode: '0',
+                        //   resultString: 'success', 
+                        //   resultConvertID: CONVERT_ID }
+});    
+``` 
+
 
 ### ConvertText
-    var options = {
-      TTStext: string,
-      TTSSpeaker: string, // Bruce, Theresa, Angela, default = Bruce
-      volume: number,     // 0 ~ 100, default = 100
-      speed: number,      // -10 ~ 10, default = 0
-      outType: string     // wav, flv
-    };
-    tts.ConvertText(options, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      console.log(result);  // { resultCode: '0',
-                            //   resultString: 'success', 
-                            //   resultConvertID: CONVERT_ID }
-    });  
+
+```js
+var options = {
+  TTStext: string,
+  TTSSpeaker: string, // Bruce, Theresa, Angela, default = Bruce
+  volume: number,     // 0 ~ 100, default = 100
+  speed: number,      // -10 ~ 10, default = 0
+  outType: string     // wav, flv
+};
+tts.ConvertText(options, function (err, result) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);  // { resultCode: '0',
+                        //   resultString: 'success', 
+                        //   resultConvertID: CONVERT_ID }
+});
+```   
+
 
 ### ConvertAdvancedText
-    var options = {
-      TTStext: string,
-      TTSSpeaker: string, // Bruce, Theresa, Angela, default = Bruce
-      volume: number,     // 0 ~ 100, default = 100
-      speed: number,      // -10 ~ 10, default = 0
-      outType: string     // wav, flv
-      PitchLevel: number, // -10 ~ 10, default = 0
-      PitchSign: number,  // 0, 1, 2, default = 0
-      PitchScale: number  // 0 ~ 20, default = 5
-    };
-    tts.ConvertAdvancedText(options, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      console.log(result);  // { resultCode: '0',
-                            //   resultString: 'success', 
-                            //   resultConvertID: CONVERT_ID }
-    });  
-    
+
+```js
+var options = {
+  TTStext: string,
+  TTSSpeaker: string, // Bruce, Theresa, Angela, default = Bruce
+  volume: number,     // 0 ~ 100, default = 100
+  speed: number,      // -10 ~ 10, default = 0
+  outType: string     // wav, flv
+  PitchLevel: number, // -10 ~ 10, default = 0
+  PitchSign: number,  // 0, 1, 2, default = 0
+  PitchScale: number  // 0 ~ 20, default = 5
+};
+tts.ConvertAdvancedText(options, function (err, result) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);  // { resultCode: '0',
+                        //   resultString: 'success', 
+                        //   resultConvertID: CONVERT_ID }
+});  
+```  
+
+
 ### GetConvertStatus
-    tts.GetConvertStatus(convertID, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      console.log(result);  // { resultCode: '0',
-                            //   resultString: 'success', 
-                            //   statusCode: '2', 
-                            //   status: 'completed', 
-                            //   resultUrl: AUDIO_ADDRESS }
-    });
-    
+
+```js
+tts.GetConvertStatus(convertID, function (err, result) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);  // { resultCode: '0',
+                        //   resultString: 'success', 
+                        //   statusCode: '2', 
+                        //   status: 'completed', 
+                        //   resultUrl: AUDIO_ADDRESS }
+});
+``` 
+
+
 ## License
-Released under the [MIT License](http://opensource.org/licenses/MIT).
+
+MIT © [Chun-Kai Wang]()
+
+
+[npm-image]: https://badge.fury.io/js/itri-tts.svg
+[npm-url]: https://npmjs.org/package/itri-tts
+[travis-image]: https://travis-ci.org/chunkai1312/itri-tts.svg?branch=master
+[travis-url]: https://travis-ci.org/chunkai1312/itri-tts
+[daviddm-image]: https://david-dm.org/chunkai1312/itri-tts.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/chunkai1312/itri-tts
