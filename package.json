@@ -1,6 +1,6 @@
 {
   "name": "itri-tts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ITRI TTS Web Service API for Node.js",
   "author": {
     "name": "Chun-Kai Wang",
@@ -9,7 +9,10 @@
   "repository": "chunkai1312/itri-tts",
   "license": "MIT",
   "files": [
-    "index.js"
+    "lib/",
+    "index.js",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "itri-tts",
