@@ -19,6 +19,7 @@
     "url": "git://github.com/chunkai1312/itri-tts.git"
   },
   "dependencies": {
+    "bluebird": "^3.3.3",
     "lodash": "^4.6.1",
     "soap": "^0.13.0"
   },
