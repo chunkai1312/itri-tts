@@ -1,14 +1,12 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# itri-tts [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > ITRI TTS Web Service API for Node.js
-
 
 ## Install
 
 ```sh
 $ npm install --save itri-tts
 ```
-
 
 ## Usage
 
@@ -18,7 +16,6 @@ $ npm install --save itri-tts
 var TTSClient = require('itri-tts');
 var tts = new TTSClient(your_accountID, your_password);
 ```   
-
 
 ### ConvertSimple
 
@@ -32,7 +29,6 @@ tts.ConvertSimple(TTStext, function (err, result) {
                         //   resultConvertID: CONVERT_ID }
 });    
 ``` 
-
 
 ### ConvertText
 
@@ -53,7 +49,6 @@ tts.ConvertText(options, function (err, result) {
                         //   resultConvertID: CONVERT_ID }
 });
 ```   
-
 
 ### ConvertAdvancedText
 
@@ -78,7 +73,6 @@ tts.ConvertAdvancedText(options, function (err, result) {
 });  
 ```  
 
-
 ### GetConvertStatus
 
 ```js
@@ -94,15 +88,11 @@ tts.GetConvertStatus(convertID, function (err, result) {
 });
 ``` 
 
-
 ## License
 
 MIT © [Chun-Kai Wang]()
-
 
 [npm-image]: https://badge.fury.io/js/itri-tts.svg
 [npm-url]: https://npmjs.org/package/itri-tts
 [travis-image]: https://travis-ci.org/chunkai1312/itri-tts.svg?branch=master
 [travis-url]: https://travis-ci.org/chunkai1312/itri-tts
-[daviddm-image]: https://david-dm.org/chunkai1312/itri-tts.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/chunkai1312/itri-tts

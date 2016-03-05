@@ -1,39 +1,34 @@
 {
   "name": "itri-tts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ITRI TTS Web Service API for Node.js",
   "author": {
     "name": "Chun-Kai Wang",
     "email": "chunkai1312@gmail.com"
   },
-  "repository": "chunkai1312/itri-tts",
-  "license": "MIT",
-  "files": [
-    "lib/",
-    "index.js",
-    "README.md",
-    "LICENSE"
-  ],
+  "main": "index",
   "keywords": [
     "itri-tts",
     "itri",
-    "tts"
+    "tts",
+    "text-to-speech",
+    "speech"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chunkai1312/itri-tts.git"
+  },
   "dependencies": {
-    "soap": "^0.8.0"
+    "lodash": "^4.6.1",
+    "soap": "^0.13.0"
   },
   "devDependencies": {
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.11.0",
-    "grunt-contrib-nodeunit": "^0.4.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-cli": "^1.12.0",
-    "jshint-stylish": "^1.0.1",
-    "load-grunt-tasks": "^3.1.0",
-    "time-grunt": "^1.1.0",
-    "should": "^5.2.0"
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0"
   },
   "scripts": {
-    "test": "grunt"
-  }
+    "test": "gulp"
+  },
+  "license": "MIT"
 }

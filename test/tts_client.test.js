@@ -1,42 +1,41 @@
 'use strict';
-var should = require('should');
-var TTSClient = require('../');
 
-describe('itri-tts node module', function () {
+var expect = require('chai').expect;
+var tts = require('../')('accountID', 'password');
 
-  var tts = new TTSClient('accountID', 'password');
+describe('TTSClient', function () {
 
-  describe('ConvertSimple', function () {
+  describe('#ConvertSimple()', function () {
     it('should return result without err', function (done) {
-      tts.ConvertSimple('Testing ConvertSimple', function (err, result) {
-        should.not.exist(err);
-        should.exist(result);
+      tts.ConvertSimple('Test the convert simple function', function (err, result) {
+        expect(err).to.not.exist;
+        expect(result).to.exist;
         done();
       });
     });
   });
 
-  describe('ConvertText', function () {
+  describe('#ConvertText()', function () {
     it('should return result without err', function (done) {
       var options = {
-        TTStext: 'Testing ConvertText',
+        TTStext: 'Test the convert text function',
         TTSSpeaker: 'Bruce',
         volume: 100,
         speed: 0,
         outType: 'wav'
       };
       tts.ConvertText(options, function (err, result) {
-        should.not.exist(err);
-        should.exist(result);
+        expect(err).to.not.exist;
+        expect(result).to.exist;
         done();
       });
     });
   });
 
-  describe('ConvertAdvancedText', function () {
+  describe('#ConvertAdvancedText()', function () {
     it('should return result without err', function (done) {
       var options = {
-        TTStext: 'Testing ConvertAdvancedText',
+        TTStext: 'Test the convert advanced text function',
         TTSSpeaker: 'Bruce',
         volume: 100,
         speed: 0,
@@ -46,18 +45,18 @@ describe('itri-tts node module', function () {
         PitchScale: 5
       };
       tts.ConvertAdvancedText(options, function (err, result) {
-        should.not.exist(err);
-        should.exist(result);
+        expect(err).to.not.exist;
+        expect(result).to.exist;
         done();
       });
     });
   });
 
-  describe('GetConvertStatus', function () {
+  describe('#GetConvertStatus()', function () {
     it('should return result without err', function (done) {
       tts.GetConvertStatus(1234567890, function (err, result) {
-        should.not.exist(err);
-        should.exist(result);
+        expect(err).to.not.exist;
+        expect(result).to.exist;
         done();
       });
     });
