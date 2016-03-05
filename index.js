@@ -1,2 +1,3 @@
 'use strict';
-module.exports = require('./lib/itri-tts');
+
+module.exports = require('./lib/tts_client');
