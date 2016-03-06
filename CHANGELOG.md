@@ -4,9 +4,9 @@
 
 - Promise support 
 
-## 0.0.4 / 2015-04-07
+## 0.0.3 / 2015-04-05
 
-- Modified code comments
+- Add license
 
 ## 0.0.3 / 2015-04-05
 
@@ -14,7 +14,7 @@
 
 ## 0.0.2 / 2015-04-04
 
-- Update README.md and package.json
+- Update README.md
 
 ## 0.0.1 / 2015-04-03
 
