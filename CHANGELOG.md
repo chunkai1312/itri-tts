@@ -1,5 +1,9 @@
 # itri-tts changelog
 
+## 1.0.0 / 2016-06-15
+
+- Remove gulp dependencies
+
 ## 0.0.5 / 2016-03-06
 
 - Promise support 
