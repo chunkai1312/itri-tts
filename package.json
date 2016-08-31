@@ -6,7 +6,7 @@
     "name": "Chun-Kai Wang",
     "email": "chunkai1312@gmail.com"
   },
-  "main": "index",
+  "main": "index.js",
   "keywords": [
     "itri-tts",
     "itri",
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "lint": "eslint index.js lib"
+    "lint": "eslint index.js lib test"
   },
   "license": "MIT"
 }
