@@ -10,12 +10,10 @@ $ npm install --save itri-tts
 
 ## Usage
 
-[Create Account](http://tts.itri.org.tw/)
-
 ```js
 var TTSClient = require('itri-tts');
 var tts = new TTSClient(your_accountID, your_password);
-```   
+```
 
 ### ConvertSimple
 
@@ -25,10 +23,10 @@ tts.ConvertSimple(TTStext, function (err, result) {
     console.log(err);
   }
   console.log(result);  // { resultCode: '0',
-                        //   resultString: 'success', 
+                        //   resultString: 'success',
                         //   resultConvertID: CONVERT_ID }
-});    
-``` 
+});
+```
 
 ### ConvertText
 
@@ -45,10 +43,10 @@ tts.ConvertText(options, function (err, result) {
     console.log(err);
   }
   console.log(result);  // { resultCode: '0',
-                        //   resultString: 'success', 
+                        //   resultString: 'success',
                         //   resultConvertID: CONVERT_ID }
 });
-```   
+```
 
 ### ConvertAdvancedText
 
@@ -70,8 +68,8 @@ tts.ConvertAdvancedText(options, function (err, result) {
   console.log(result);  // { resultCode: '0',
                         //   resultString: 'success', 
                         //   resultConvertID: CONVERT_ID }
-});  
-```  
+});
+```
 
 ### GetConvertStatus
 
@@ -83,14 +81,18 @@ tts.GetConvertStatus(convertID, function (err, result) {
   console.log(result);  // { resultCode: '0',
                         //   resultString: 'success', 
                         //   statusCode: '2', 
-                        //   status: 'completed', 
+                        //   status: 'completed',
                         //   resultUrl: AUDIO_ADDRESS }
 });
-``` 
+```
+
+## Reference
+
+[工研院文字轉語音Web服務](http://tts.itri.org.tw)
 
 ## License
 
-MIT © [Chun-Kai Wang]()
+MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
 
 [npm-image]: https://badge.fury.io/js/itri-tts.svg
 [npm-url]: https://npmjs.org/package/itri-tts
