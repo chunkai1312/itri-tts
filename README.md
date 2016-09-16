@@ -12,7 +12,7 @@ $ npm install --save itri-tts
 
 ```js
 var TTSClient = require('itri-tts')
-var tts = new TTSClient(your_accountID, your_password)
+var tts = new TTSClient(accountID, password)
 ```
 
 ### ConvertSimple
