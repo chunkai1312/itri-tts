@@ -1,12 +1,18 @@
 # itri-tts changelog
 
+## 1.0.1 / 2016-09-16
+
+- Fix function GetConvertStatus()
+- Add promise test
+- Update README.md
+
 ## 1.0.0 / 2016-06-15
 
 - Remove gulp dependencies
 
 ## 0.0.5 / 2016-03-06
 
-- Promise support 
+- Promise support
 
 ## 0.0.4 / 2015-04-05
 
