@@ -2,8 +2,6 @@
 
 > ITRI TTS Web Service API for Node.js
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 ## Install
 
 ```sh
@@ -20,72 +18,106 @@ var tts = new TTSClient(your_accountID, your_password)
 ### ConvertSimple
 
 ```js
-tts.ConvertSimple(TTStext, function (err, result) {
-  if (err) {
-    console.log(err)
-  }
+var text = '您好，我是Bruce，感謝您使用工研院文字轉語音Web服務。'
+
+tts.ConvertSimple(text, function (err, result) {
+  if (err) throw err
   console.log(result)  // { resultCode: '0',
                        //   resultString: 'success',
                        //   resultConvertID: CONVERT_ID }
 })
+
+/* Promise Support */
+tts.ConvertSimple(text)
+  .then(function (result) {
+    console.log(result)
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 ```
 
 ### ConvertText
 
 ```js
 var options = {
-  TTStext: string,
-  TTSSpeaker: string,  // Bruce, Theresa, Angela, default = Bruce
-  volume: number,      // 0 ~ 100, default = 100
-  speed: number,       // -10 ~ 10, default = 0
-  outType: string      // wav, flv
+  TTStext: '您好，我是Bruce，感謝您使用工研院文字轉語音Web服務。',
+  TTSSpeaker: 'Bruce',  // 'Bruce', 'Theresa', 'Angela', default = Bruce
+  volume: 100,          // 0 ~ 100, default = 100
+  speed: 0,             // -10 ~ 10, default = 0
+  outType: 'wav'        // 'wav', 'flv', default = 'wav'
 }
+
 tts.ConvertText(options, function (err, result) {
-  if (err) {
-    console.log(err)
-  }
+  if (err) throw err
   console.log(result)  // { resultCode: '0',
                        //   resultString: 'success',
                        //   resultConvertID: CONVERT_ID }
 })
+
+/* Promise Support */
+tts.ConvertText(options)
+  .then(function (result) {
+    console.log(result)
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 ```
 
 ### ConvertAdvancedText
 
 ```js
 var options = {
-  TTStext: string,
-  TTSSpeaker: string,  // Bruce, Theresa, Angela, default = Bruce
-  volume: number,      // 0 ~ 100, default = 100
-  speed: number,       // -10 ~ 10, default = 0
-  outType: string      // wav, flv
-  PitchLevel: number,  // -10 ~ 10, default = 0
-  PitchSign: number,   // 0, 1, 2, default = 0
-  PitchScale: number   // 0 ~ 20, default = 5
+  TTStext: '您好，我是Bruce，感謝您使用工研院文字轉語音Web服務。',
+  TTSSpeaker: 'Bruce',  // Bruce, Theresa, Angela, default = Bruce
+  volume: 100,          // 0 ~ 100, default = 100
+  speed: 0,             // -10 ~ 10, default = 0
+  outType: 'wav',       // wav, flv
+  PitchLevel: 0,        // -10 ~ 10, default = 0
+  PitchSign: 0,         // 0, 1, 2, default = 0
+  PitchScale: 5         // 0 ~ 20, default = 5
 }
+
 tts.ConvertAdvancedText(options, function (err, result) {
-  if (err) {
-    console.log(err)
-  }
+  if (err) throw err
   console.log(result)  // { resultCode: '0',
-                       //   resultString: 'success', 
+                       //   resultString: 'success',
                        //   resultConvertID: CONVERT_ID }
 })
+
+/* Promise Support */
+tts.ConvertAdvancedText(options)
+  .then(function (result) {
+    console.log(result)
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 ```
 
 ### GetConvertStatus
 
 ```js
+var convertID = 1234567890
+
 tts.GetConvertStatus(convertID, function (err, result) {
-  if (err) {
-    console.log(err)
-  }
+  if (err) throw err
   console.log(result)  // { resultCode: '0',
-                       //   resultString: 'success', 
-                       //   statusCode: '2', 
+                       //   resultString: 'success',
+                       //   statusCode: '2',
                        //   status: 'completed',
                        //   resultUrl: AUDIO_ADDRESS }
 })
+
+/* Promise Support */
+tts.GetConvertStatus(convertID)
+  .then(function (result) {
+    console.log(result)
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 ```
 
 ## Reference
