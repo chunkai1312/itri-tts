@@ -5,17 +5,31 @@ var tts = require('../')('accountID', 'password')
 
 describe('TTSClient', function () {
   describe('#ConvertSimple()', function () {
-    it('should return result without err', function (done) {
-      tts.ConvertSimple('Test the convert simple function', function (err, result) {
+    var promise, result
+
+    it('should get result without error', function (done) {
+      promise = tts.ConvertSimple('Test the convert simple function', function (err, res) {
         expect(err).to.not.exist
-        expect(result).to.exist
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+        result = res
         done()
+      })
+    })
+
+    it('should return promise', function () {
+      return promise.then(function (res) {
+        expect(res).to.exist
+        expect(res).to.equal(result)
       })
     })
   })
 
   describe('#ConvertText()', function () {
-    it('should return result without err', function (done) {
+    var promise, result
+
+    it('should get result without error', function (done) {
       var options = {
         TTStext: 'Test the convert text function',
         TTSSpeaker: 'Bruce',
@@ -23,16 +37,29 @@ describe('TTSClient', function () {
         speed: 0,
         outType: 'wav'
       }
-      tts.ConvertText(options, function (err, result) {
+
+      promise = tts.ConvertText(options, function (err, res) {
         expect(err).to.not.exist
-        expect(result).to.exist
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+        result = res
         done()
+      })
+    })
+
+    it('should return promise', function () {
+      return promise.then(function (res) {
+        expect(res).to.exist
+        expect(res).to.equal(result)
       })
     })
   })
 
   describe('#ConvertAdvancedText()', function () {
-    it('should return result without err', function (done) {
+    var promise, result
+
+    it('should get result without error', function (done) {
       var options = {
         TTStext: 'Test the convert advanced text function',
         TTSSpeaker: 'Bruce',
@@ -43,20 +70,43 @@ describe('TTSClient', function () {
         PitchSign: 0,
         PitchScale: 5
       }
-      tts.ConvertAdvancedText(options, function (err, result) {
+
+      promise = tts.ConvertAdvancedText(options, function (err, res) {
         expect(err).to.not.exist
-        expect(result).to.exist
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+        result = res
         done()
+      })
+    })
+
+    it('should return promise', function () {
+      return promise.then(function (res) {
+        expect(res).to.exist
+        expect(res).to.equal(result)
       })
     })
   })
 
   describe('#GetConvertStatus()', function () {
-    it('should return result without err', function (done) {
-      tts.GetConvertStatus(1234567890, function (err, result) {
+    var promise, result
+
+    it('should get result without error', function (done) {
+      promise = tts.GetConvertStatus(1234567890, function (err, res) {
         expect(err).to.not.exist
-        expect(result).to.exist
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'statusCode', 'status', 'resultUrl')
+        result = res
         done()
+      })
+    })
+
+    it('should return promise', function () {
+      return promise.then(function (res) {
+        expect(res).to.exist
+        expect(res).to.equal(result)
       })
     })
   })
