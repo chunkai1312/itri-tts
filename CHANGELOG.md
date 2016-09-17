@@ -1,10 +1,11 @@
 # itri-tts changelog
 
-## 1.0.1 / 2016-09-16
+## 1.1.0 / 2016-09-18
 
-- Fix function GetConvertStatus()
-- Add promise test
-- Update README.md
+- Fix the return of method `GetConvertStatus`
+- Refactor and use [JavaScript Standard Style](http://standardjs.com/)
+- Update dependencies version
+- Add tests for promise support
 
 ## 1.0.0 / 2016-06-15
 
