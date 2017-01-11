@@ -1,112 +1,194 @@
 'use strict'
 
 var expect = require('chai').expect
+var sinon = require('sinon')
 var tts = require('../')('accountID', 'password')
 
 describe('TTSClient', function () {
-  describe('#ConvertSimple()', function () {
-    var promise, result
+  var sandbox
 
+  beforeEach(function () {
+    sandbox = sinon.sandbox.create()
+  })
+
+  afterEach(function () {
+    sandbox.restore()
+  })
+
+  describe('#ConvertSimple()', function () {
     it('should get result without error', function (done) {
-      promise = tts.ConvertSimple('Test the convert simple function', function (err, res) {
+      tts.ConvertSimple('Test the convert simple function', function (err, res) {
         expect(err).to.not.exist
         expect(res).to.exist
         expect(res).to.be.an('object')
         expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
-        result = res
         done()
       })
     })
 
     it('should return promise', function () {
-      return promise.then(function (res) {
+      return tts.ConvertSimple('Test the convert simple function').then(function (res) {
         expect(res).to.exist
-        expect(res).to.equal(result)
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+      })
+    })
+
+    it('should exist error if cannot connect to ITRI TTS server', function (done) {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      tts.ConvertSimple('Test the convert simple function', function (err, res) {
+        expect(err).to.exist
+        expect(err).to.be.an('error')
+        expect(res).to.not.exist
+        done()
+      })
+    })
+
+    it('should throw error if cannot connect to ITRI TTS CKIP server', function () {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      return tts.ConvertSimple('Test the convert simple function').catch(function (err) {
+        expect(err).to.be.an('error')
       })
     })
   })
 
   describe('#ConvertText()', function () {
-    var promise, result
+    var options = {
+      TTStext: 'Test the convert text function',
+      TTSSpeaker: 'Bruce',
+      volume: 100,
+      speed: 0,
+      outType: 'wav'
+    }
 
     it('should get result without error', function (done) {
-      var options = {
-        TTStext: 'Test the convert text function',
-        TTSSpeaker: 'Bruce',
-        volume: 100,
-        speed: 0,
-        outType: 'wav'
-      }
-
-      promise = tts.ConvertText(options, function (err, res) {
+      tts.ConvertText(options, function (err, res) {
         expect(err).to.not.exist
         expect(res).to.exist
         expect(res).to.be.an('object')
         expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
-        result = res
         done()
       })
     })
 
     it('should return promise', function () {
-      return promise.then(function (res) {
+      return tts.ConvertText(options).then(function (res) {
         expect(res).to.exist
-        expect(res).to.equal(result)
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+      })
+    })
+
+    it('should exist error if cannot connect to ITRI TTS server', function (done) {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      tts.ConvertText(options, function (err, res) {
+        expect(err).to.exist
+        expect(err).to.be.an('error')
+        expect(res).to.not.exist
+        done()
+      })
+    })
+
+    it('should throw error if cannot connect to ITRI TTS CKIP server', function () {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      return tts.ConvertText(options).catch(function (err) {
+        expect(err).to.be.an('error')
       })
     })
   })
 
   describe('#ConvertAdvancedText()', function () {
-    var promise, result
+    var options = {
+      TTStext: 'Test the convert advanced text function',
+      TTSSpeaker: 'Bruce',
+      volume: 100,
+      speed: 0,
+      outType: 'wav',
+      PitchLevel: 0,
+      PitchSign: 0,
+      PitchScale: 5
+    }
 
     it('should get result without error', function (done) {
-      var options = {
-        TTStext: 'Test the convert advanced text function',
-        TTSSpeaker: 'Bruce',
-        volume: 100,
-        speed: 0,
-        outType: 'wav',
-        PitchLevel: 0,
-        PitchSign: 0,
-        PitchScale: 5
-      }
-
-      promise = tts.ConvertAdvancedText(options, function (err, res) {
+      tts.ConvertAdvancedText(options, function (err, res) {
         expect(err).to.not.exist
         expect(res).to.exist
         expect(res).to.be.an('object')
         expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
-        result = res
         done()
       })
     })
 
     it('should return promise', function () {
-      return promise.then(function (res) {
+      return tts.ConvertAdvancedText(options).then(function (res) {
         expect(res).to.exist
-        expect(res).to.equal(result)
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'resultConvertID')
+      })
+    })
+
+    it('should exist error if cannot connect to ITRI TTS server', function (done) {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      tts.ConvertAdvancedText(options, function (err, res) {
+        expect(err).to.exist
+        expect(err).to.be.an('error')
+        expect(res).to.not.exist
+        done()
+      })
+    })
+
+    it('should throw error if cannot connect to ITRI TTS CKIP server', function () {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      return tts.ConvertAdvancedText(options).catch(function (err) {
+        expect(err).to.be.an('error')
       })
     })
   })
 
   describe('#GetConvertStatus()', function () {
-    var promise, result
-
     it('should get result without error', function (done) {
-      promise = tts.GetConvertStatus(1234567890, function (err, res) {
+      tts.GetConvertStatus(1234567890, function (err, res) {
         expect(err).to.not.exist
         expect(res).to.exist
         expect(res).to.be.an('object')
         expect(res).to.include.keys('resultCode', 'resultString', 'statusCode', 'status', 'resultUrl')
-        result = res
         done()
       })
     })
 
     it('should return promise', function () {
-      return promise.then(function (res) {
+      return tts.GetConvertStatus(1234567890).then(function (res) {
         expect(res).to.exist
-        expect(res).to.equal(result)
+        expect(res).to.exist
+        expect(res).to.be.an('object')
+        expect(res).to.include.keys('resultCode', 'resultString', 'statusCode', 'status', 'resultUrl')
+      })
+    })
+
+    it('should exist error if cannot connect to ITRI TTS server', function (done) {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      tts.GetConvertStatus(1234567890, function (err, res) {
+        expect(err).to.exist
+        expect(err).to.be.an('error')
+        expect(res).to.not.exist
+        done()
+      })
+    })
+
+    it('should throw error if cannot connect to ITRI TTS CKIP server', function () {
+      sandbox.stub(tts, 'createClient').returns(Promise.reject(new Error()))
+
+      return tts.GetConvertStatus(1234567890).catch(function (err) {
+        expect(err).to.be.an('error')
       })
     })
   })
