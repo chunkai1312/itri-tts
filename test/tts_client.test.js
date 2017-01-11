@@ -1,5 +1,6 @@
 'use strict'
 
+var Promise = require('bluebird')
 var expect = require('chai').expect
 var sinon = require('sinon')
 var tts = require('../')('accountID', 'password')
