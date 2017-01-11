@@ -1,4 +1,4 @@
-# itri-tts [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+# itri-tts [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Test coverage][codecov-image]][codecov-url]
 
 > ITRI TTS Web Service API for Node.js
 
@@ -132,3 +132,5 @@ MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
 [npm-url]: https://npmjs.org/package/itri-tts
 [travis-image]: https://travis-ci.org/chunkai1312/itri-tts.svg?branch=master
 [travis-url]: https://travis-ci.org/chunkai1312/itri-tts
+[codecov-image]: https://codecov.io/gh/chunkai1312/itri-tts/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/chunkai1312/itri-tts
