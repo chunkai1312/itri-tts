@@ -1,5 +1,10 @@
 # itri-tts changelog
 
+## 1.2.0 / 2017-01-13
+
+- Refactor to extract methods
+- Add test coverage
+
 ## 1.1.0 / 2016-09-18
 
 - Fix the return of method `GetConvertStatus`
