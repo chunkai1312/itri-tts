@@ -1,10 +1,14 @@
-# itri-tts [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Test coverage][codecov-image]][codecov-url]
+# itri-tts
+
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][codecov-image]][codecov-url]
 
 > ITRI TTS Web Service API for Node.js
 
 ## Install
 
-```sh
+```
 $ npm install --save itri-tts
 ```
 
@@ -130,7 +134,7 @@ MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
 
 [npm-image]: https://img.shields.io/npm/v/itri-tts.svg
 [npm-url]: https://npmjs.org/package/itri-tts
-[travis-image]: https://travis-ci.org/chunkai1312/itri-tts.svg?branch=master
+[travis-image]: https://img.shields.io/travis/chunkai1312/itri-tts.svg
 [travis-url]: https://travis-ci.org/chunkai1312/itri-tts
-[codecov-image]: https://codecov.io/gh/chunkai1312/itri-tts/branch/master/graph/badge.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/chunkai1312/itri-tts.svg
 [codecov-url]: https://codecov.io/gh/chunkai1312/itri-tts
