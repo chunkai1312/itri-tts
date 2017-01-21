@@ -1,6 +1,6 @@
 {
   "name": "itri-tts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ITRI TTS Web Service API for Node.js",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint lib test"
   },
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/chunkai1312/itri-tts.git"
