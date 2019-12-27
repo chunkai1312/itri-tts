@@ -4,7 +4,11 @@
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][codecov-image]][codecov-url]
 
-> ITRI TTS Web Service API for Node.js
+> [DEPRECATED] ITRI TTS Web Service API for Node.js
+
+## Deprecation Notice
+
+ITRI TTS Web Service API has stopped working.
 
 ## Install
 
