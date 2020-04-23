@@ -10,6 +10,10 @@
 
 ITRI TTS Web Service API has stopped working.
 
+## Deprecation Notice
+
+ITRI TTS Web Service API has stopped working.
+
 ## Install
 
 ```
